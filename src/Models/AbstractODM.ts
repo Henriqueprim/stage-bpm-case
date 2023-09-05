@@ -33,6 +33,11 @@ abstract class AbstractODM<T> {
     );
   }
 
+  public async findOne(title: string): Promise<T | null> {
+    const process = await this.model.findOne({ title });
+    return process;
+  }
+
   public async findById(id: string): Promise<T | null> {
     if (!isValidObjectId(id)) throw new CustomError('Invalid mongo id', 422);
     return this.model.findById(id);
