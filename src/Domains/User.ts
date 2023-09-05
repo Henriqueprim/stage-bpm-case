@@ -1,7 +1,7 @@
 import IUser from "../Interfaces/IUser";
 
 class User {
-    private id: number;
+    private id: string;
     protected username: string;
     protected email: string;
 
@@ -11,11 +11,11 @@ class User {
         this.email = user.email;
     }
 
-    getUserId(): number {
+    getUserId(): string {
         return this.id;
     }
 
-    setUserId(id: number) {
+    setUserId(id: string) {
         this.id = id;
     }
 
