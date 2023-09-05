@@ -36,8 +36,8 @@ class ProcessServices {
         return this.processDomain(updateProcess);
     }
 
-    public async addInterconection(id: string, interconection: string[]): Promise<Process | null> {
-        const updateProcess = await this.model.update(id, {interconections: interconection } );
+    public async addInterconnection(id: string, interconnection: string[]): Promise<Process | null> {
+        const updateProcess = await this.model.update(id, {interconnections: interconnection } );
         return this.processDomain(updateProcess);
     }
 
