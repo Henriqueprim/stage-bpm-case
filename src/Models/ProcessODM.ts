@@ -7,7 +7,7 @@ class ProcessODM extends AbstractODM<IProcess> {
     const processSchema = new Schema<IProcess>({
       title: { type: String, required: true },
       subprocesses: Array,
-      interconections: Array,
+      interconnections: Array,
     });
     super(processSchema, "Process");
   }
