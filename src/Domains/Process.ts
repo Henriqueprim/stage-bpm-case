@@ -4,13 +4,13 @@ class Process {
     private id?: string;
     protected title: string;
     protected subprocesses: string[];
-    protected interconections: string[];
+    protected interconnections: string[];
 
     constructor(process: IProcess) {
         this.id = process.id;
         this.title = process.title;
         this.subprocesses = process.subprocesses;
-        this.interconections = process.interconections;
+        this.interconnections = process.interconnections;
     }
 
 
@@ -38,20 +38,20 @@ class Process {
         this.subprocesses = subprocesses;
     }
 
-    addSubprocess(subprocess: string) {
-        this.subprocesses.push(subprocess);
+    addSubprocess(subprocess: string[]) {
+        this.subprocesses.concat(subprocess);
     }
 
-    getInterconections(): string[] | undefined{
-        return this.interconections;
+    getInterconnections(): string[] | undefined{
+        return this.interconnections;
     }
 
-    setInterconections(interconections: []) {
-        this.interconections = interconections;
+    setInterconnections(interconnections: []) {
+        this.interconnections = interconnections;
     }
 
-    addInterconection(interconection: string) {
-        this.interconections.push(interconection);
+    addInterconnection(interconnection: string[]) {
+        this.interconnections.concat(interconnection);
     }
 }
 
