@@ -5,8 +5,9 @@ import IProcess from "../Interfaces/IProcess";
 class ProcessODM extends AbstractODM<IProcess> {
   constructor() {
     const processSchema = new Schema<IProcess>({
-      tittle: { type: String, required: true },
+      title: { type: String, required: true },
       subprocesses: Array,
+      interconections: Array,
     });
     super(processSchema, "Process");
   }
