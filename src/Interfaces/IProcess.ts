@@ -1,7 +1,8 @@
 interface IProcess {
-    id: string;
+    id?: string;
     title: string;
-    subprocesses: [];
+    subprocesses: string[];
+    interconections: string[];
 }
 
 export default IProcess;

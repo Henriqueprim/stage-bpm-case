@@ -1,18 +1,20 @@
 import IProcess from "../Interfaces/IProcess";
 
 class Process {
-    private id: string;
+    private id?: string;
     protected title: string;
-    protected subprocesses: IProcess[];
+    protected subprocesses: string[];
+    protected interconections: string[];
 
     constructor(process: IProcess) {
         this.id = process.id;
         this.title = process.title;
         this.subprocesses = process.subprocesses;
+        this.interconections = process.interconections;
     }
 
 
-    getProcessId(): string {
+    getProcessId(): string | undefined{
         return this.id;
     }
 
@@ -28,7 +30,7 @@ class Process {
         this.title = title;
     }
 
-    getSubprocesses(): IProcess[] {
+    getSubprocesses(): string[] | undefined{
         return this.subprocesses;
     }
 
@@ -36,8 +38,20 @@ class Process {
         this.subprocesses = subprocesses;
     }
 
-    addSubprocess(subprocess: IProcess) {
+    addSubprocess(subprocess: string) {
         this.subprocesses.push(subprocess);
+    }
+
+    getInterconections(): string[] | undefined{
+        return this.interconections;
+    }
+
+    setInterconections(interconections: []) {
+        this.interconections = interconections;
+    }
+
+    addInterconection(interconection: string) {
+        this.interconections.push(interconection);
     }
 }
 
