@@ -1,6 +1,6 @@
 interface IProcess {
-    id: number;
-    tittle: string;
+    id: string;
+    title: string;
     subprocesses: [];
 }
 
