@@ -8,6 +8,7 @@ class ProcessODM extends AbstractODM<IProcess> {
       title: { type: String, required: true },
       subprocesses: Array,
       interconnections: Array,
+      positions: Array,
     });
     super(processSchema, "Process");
   }

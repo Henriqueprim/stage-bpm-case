@@ -20,6 +20,7 @@ class ProcessControllers {
             title: this.req.body.title,
             subprocesses: this.req.body.subprocesses,
             interconnections: this.req.body.interconnections,
+            positions: this.req.body.positions,
         }
         try {
             const newProcess = await this.service.create(process);
@@ -79,8 +80,22 @@ class ProcessControllers {
         try {
             const process = await this.service.getProcessById(id);
             process?.addInterconnection(interconnections);
-            const newInterconnection = process?.getInterconnections() as string[];
+            const newInterconnection = process?.getInterconnections() as {}[];
             const updatedProcess = await this.service.addInterconnection(id, newInterconnection);
+            return this.res.status(200).json(updatedProcess);
+        } catch (error) {
+            this.next(error);
+        }
+    }
+
+    public async addPositions() {
+        const { id } = this.req.params;
+        const { positions } = this.req.body;
+        try {
+            const process = await this.service.getProcessById(id);
+            process?.addPositions(positions);
+            const newPositions = process?.getPositions() as {}[];
+            const updatedProcess = await this.service.addPositions(id, newPositions);
             return this.res.status(200).json(updatedProcess);
         } catch (error) {
             this.next(error);
